@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 namespace EmployeeManagement.Api.Data
 {
     public class AppliactionDbContext : DbContext
-    {
+    {// db context has been added here. 
         public AppliactionDbContext(DbContextOptions<AppliactionDbContext> options) : base(options) { 
         }
     }
