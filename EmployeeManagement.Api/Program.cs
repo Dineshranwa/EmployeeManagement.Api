@@ -13,9 +13,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //To create dbContext 
-builder.Services.AddDbContext<AppliactionDbContext>(x =>
+builder.Services.AddDbContext<AppliactionDbContext>(options =>
 {
-    x.UseSqlServer( // to tell that which database we are going to use , sql , mysql and etc.
+    options.UseSqlServer( // to tell that which database we are going to use , sql , mysql and etc.
     builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 

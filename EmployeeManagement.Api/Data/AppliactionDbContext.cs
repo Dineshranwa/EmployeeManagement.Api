@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EmployeeManagement.Api.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 namespace EmployeeManagement.Api.Data
 {
@@ -6,5 +7,10 @@ namespace EmployeeManagement.Api.Data
     {  
         public AppliactionDbContext(DbContextOptions<AppliactionDbContext> options) : base(options) { 
         }
+
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Designation> Designations { get; set; }
+        public DbSet<Department> Departments{ get; set; }
+
     }
 }
