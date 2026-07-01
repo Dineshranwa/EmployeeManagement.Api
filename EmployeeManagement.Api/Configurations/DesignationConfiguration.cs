@@ -7,7 +7,7 @@ namespace EmployeeManagement.Api.Configurations
 {
     public class DesignationConfiguration :IEntityTypeConfiguration<Designation>
     {
-        public void Configure(EntityTypeBuilder<Designation> buikder) { 
+        public void Configure(EntityTypeBuilder<Designation> builder) { 
         }
 
     }
