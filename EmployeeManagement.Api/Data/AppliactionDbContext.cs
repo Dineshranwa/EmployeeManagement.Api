@@ -12,5 +12,12 @@ namespace EmployeeManagement.Api.Data
         public DbSet<Designation> Designations { get; set; }
         public DbSet<Department> Departments{ get; set; }
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Employee>(entity =>{
+            });
+        }
     }
 }
