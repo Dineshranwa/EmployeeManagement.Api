@@ -17,6 +17,7 @@ namespace EmployeeManagement.Api.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Employee>(entity =>{
+                entity.Property(e =>e.FirstName ).HasMaxLength(121).IsRequired();
             });
         }
     }
