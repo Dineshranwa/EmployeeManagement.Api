@@ -5,7 +5,7 @@ namespace EmployeeManagement.Api.Configurations
 {
     public class EmployeeConfiguration
     {// Employee configuration has been created done
-        public void Configure(EntityTypeBuilder<EmployeeConfiguration> builder)
+        public void Configure(EntityTypeBuilder<Employee> builder)
         {
         }
     }
