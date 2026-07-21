@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.Api.Models;
+﻿using EmployeeManagement.Api.Configurations;
+using EmployeeManagement.Api.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 namespace EmployeeManagement.Api.Data
@@ -17,25 +18,11 @@ namespace EmployeeManagement.Api.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Employee>(entity =>
-            {
-                
-                entity.Property(e => e.EmployeeCode).HasMaxLength(10).IsRequired();
-                entity.Property(e => e.FirstName).HasMaxLength(100).IsRequired();
-                entity.Property(e => e.LastName).HasMaxLength(100).IsRequired();
-                entity.Property(e => e.Email).HasMaxLength(200).IsRequired();
-                entity.Property(e => e.PhoneNumber).HasMaxLength(15).IsRequired();
-                entity.Property(e => e.JoiningDate).IsRequired();
-                entity.Property(e => e.DateOfLeaving);
-                entity.Property(e => e.EmployementStatus).HasMaxLength(50);
-                entity.Property(e => e.DepartmentId);
-                entity.Property(e => e.DesignationId).HasMaxLength(200).IsRequired();
-                entity.Property(e => e.IsActive).HasDefaultValue(false);
-                entity.Property(e => e.CreatedDate).HasDefaultValue(DateTime.Now).IsRequired();
-                entity.Property(e => e.ModifiedDate);
-
-
-            });
+            
+            // This line is applicable only when we dont want to configure every Configuration manually then will work automatically. 
+            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppliactionDbContext).Assembly);
+            
+            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
         }
     }
 }
